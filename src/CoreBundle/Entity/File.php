@@ -24,7 +24,6 @@ class File
     private $id;
 
     /**
-     * @Assert\File(maxSize="6000000")
      */
     private $file;
 
@@ -49,19 +48,10 @@ class File
      */
     private $createdAt;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pos_lat", type="decimal")
-     */
-    private $posLat;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pos_lon", type="decimal")
-     */
-    private $posLon;
+    function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
 
     /**
@@ -141,19 +131,6 @@ class File
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return File
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime 
@@ -163,49 +140,4 @@ class File
         return $this->createdAt;
     }
 
-    /**
-     * Set posLat
-     *
-     * @param string $posLat
-     * @return File
-     */
-    public function setPosLat($posLat)
-    {
-        $this->posLat = $posLat;
-
-        return $this;
-    }
-
-    /**
-     * Get posLat
-     *
-     * @return string 
-     */
-    public function getPosLat()
-    {
-        return $this->posLat;
-    }
-
-    /**
-     * Set posLon
-     *
-     * @param string $posLon
-     * @return File
-     */
-    public function setPosLon($posLon)
-    {
-        $this->posLon = $posLon;
-
-        return $this;
-    }
-
-    /**
-     * Get posLon
-     *
-     * @return string 
-     */
-    public function getPosLon()
-    {
-        return $this->posLon;
-    }
 }
