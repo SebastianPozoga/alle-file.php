@@ -16,7 +16,7 @@ class FileRestController extends Controller
      * @Route("/rest/files")
      * @Method({"GET"})
      */
-    public function getFilesAction($name)
+    public function getFilesAction()
     {
         $em = $this->get('doctrine.orm.default_entity_manager');
         $list = $em->getRepository('CoreBundle:File')->findAll();
@@ -47,7 +47,9 @@ class FileRestController extends Controller
             $em->flush();
 
             return new JsonResponse('ok', 200);
-        }
+        } else {
+		return new JsonResponse($form->getErrors(), 404);
+	}
 
         return new JsonResponse();
     }
