@@ -1,7 +1,7 @@
-core:
-    resource: "@CoreBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#core:
+#    resource: "@CoreBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
 
 rest:
     resource: "@RestBundle/Controller/"
